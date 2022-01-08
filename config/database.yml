@@ -13,7 +13,7 @@ default: &default
 development:
   <<: *default
   database: co2tracker_development
-  host: localhost
+  host: 10.0.0.97
   username: postgres
   password: <%= Rails.application.credentials.dig(:development, :postgres_password) %>
 
@@ -23,12 +23,15 @@ development:
 test:
   <<: *default
   database: co2tracker_test
-  host: localhost
+  host: 10.0.0.97
   username: postgres
   password: <%= Rails.application.credentials.dig(:test, :postgres_password) %>
 
+# DigitalOcean envs
 production:
   <<: *default
-  database: covid-co2-tracker_production
-  username: covid-co2-tracker
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  host: <%= ENV['db.HOSTNAME'] %>
+  port: <%= ENV['db.PORT'] %>
+  database: <%= ENV['db.DATABASE'] %>
+  username: <%= ENV['db.USERNAME'] %>
+  password: <%= ENV['db.PASSWORD'] %>
