@@ -15,7 +15,7 @@ return if ::ENV.fetch('RAILS_ENV', 'development') != 'development'
 
 contoso = ::Manufacturer.find_or_create_by!(name: 'Contoso')
 
-first_user = ::User.find_or_create_by!(email: 'alexander@alexander')
+first_user = ::User.find_or_create_by!(email: 'chad@chadohman')
 
 contoso_one =
   ::Model.find_or_create_by!(name: 'Contoso 1') do |dm|
@@ -30,7 +30,7 @@ first_device =
 
 ::Rails.logger.info(first_device)
 
-me = ::User.find_by!(email: 'alexander@alexander')
+me = ::User.find_by!(email: 'chad@chadohman')
 
 # a_place = ::Place.find_or_create_by!(google_place_id: 'lfasieufielaiejf;aiewefjeoif;wief;jewfiwof;afewijf;aief;wef', last_fetched: Time.now)
 # me.devices.first.measurement.create!(co2ppm: 500, place_id: a_place.id)
